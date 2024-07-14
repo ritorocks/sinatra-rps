@@ -9,11 +9,24 @@ get("/") do
 end
 
 get ("/rock") do
-  "We played rock!"
+
+  moves = ["rock", "paper", "scissors"]
+  @comp_move = moves.sample
+
+  if @comp_move == "rock"
+    @outcome = "tied"
+  elsif @comp_move == "paper"
+    @outcome = "lost"
+  else
+    @outcome = "won" 
+  end
+
+erb(:rock)
+
 end
 
 get ("/paper") do
-  "We played paper!"
+"This is Paper"
 end
 
 get ("/scissors") do
